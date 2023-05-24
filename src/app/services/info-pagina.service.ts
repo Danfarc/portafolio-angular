@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { InfoPagina } from '../Interfaces/info-pagina.interface';
-import { Equipo } from '../Interfaces/equipo-pagina.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +24,6 @@ export class InfoPaginaService {
       //console.log( resp.email);
     }); */
     this.cargarInfo();
-    this.cargarEquipo();
 
   }
 
@@ -39,13 +37,5 @@ export class InfoPaginaService {
     });
   }
 
-  private cargarEquipo(){
-    this.http.get('https://angular-html-f0180-default-rtdb.firebaseio.com/Equipo.json')
-    .subscribe((resp: any) => {
-      this.cargada = true;
-      this.equipo = resp;
-      //console.log(resp);
-    });
-  }
 
 }
